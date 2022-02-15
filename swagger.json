@@ -1,0 +1,231 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "attainU CRUD",
+        "description": "",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "tags": [
+        {
+            "name": "user",
+            "description": "API for user login"
+        },
+        {
+            "name": "post",
+            "description": "API for posts CRUD"
+        }
+    ],
+    "paths": {
+        "/login": {
+            "post": {
+                "summary": "user login",
+                "description": "",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "User credentials to login",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "login success"
+                    },
+                    "422": {
+                        "description": "Invalid user"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/posts": {
+            "post": {
+                "summary": "create a post",
+                "description": "",
+                "tags": [
+                    "post"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Bearer token",
+                        "required": true,
+                        "example": "Bearer eyx.."
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Post object that needs to be saved",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Post"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Post created"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized request"
+                    }
+                }
+            },
+            "get": {
+                "summary": "fetch posts",
+                "description": "",
+                "tags": [
+                    "post"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Bearer token",
+                        "required": true,
+                        "example": "Bearer eyx.."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Post created"
+                    },
+                    "401": {
+                        "description": "Unauthorized request"
+                    }
+                }
+            }
+        },
+        "/posts/{postId}": {
+            "put": {
+                "summary": "edit a post",
+                "description": "",
+                "tags": [
+                    "post"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Bearer token",
+                        "required": true,
+                        "example": "Bearer eyx.."
+                    },
+                    {
+                        "in": "path",
+                        "name": "postId",
+                        "description": "unique id of the post",
+                        "required": true,
+                        "example": "620a64106b4dffe266d12f99"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Post object that needs to be saved",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Post"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Post modified"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized request"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "delete a post",
+                "description": "",
+                "tags": [
+                    "post"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Bearer token",
+                        "required": true,
+                        "example": "Bearer eyx.."
+                    },
+                    {
+                        "in": "path",
+                        "name": "postId",
+                        "description": "unique id of the post",
+                        "required": true,
+                        "example": "620a64106b4dffe266d12f99"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Post deleted"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized request"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "User": {
+            "type": "object",
+            "properties": {
+                "userName": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "Post": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

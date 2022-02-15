@@ -15,7 +15,7 @@ const validateBodySchema = (schema) => (req, res, next) => {
 	const result = checkSchema(req.body, schema);
 
 	if (result) {
-		return res.status(422).send(result);
+		return res.status(400).send(result);
 	}
 	return next();
 };
