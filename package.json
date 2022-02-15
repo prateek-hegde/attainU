@@ -16,11 +16,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm audit && npm run lint"
-    }
-  },
   "dependencies": {
     "bcryptjs": "2.4.3",
     "cors": "2.8.5",
@@ -38,7 +33,6 @@
     "eslint-config-airbnb-base": "14.0.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-import": "2.20.1",
-    "husky": "7.0.4",
     "nodemon": "2.0.7",
     "prettier": "2.5.1"
   }
