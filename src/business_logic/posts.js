@@ -52,7 +52,14 @@ const editPost = async (req, res, next) => {
     const { postId } = req.params
 
     try {
-        await Post.updateOne({ _id: postId }, { $set: req.body })
+        const post = await Post.findByIdAndUpdate(
+            { _id: postId },
+            { $set: req.body }
+        )
+        if (!post) {
+            return next(ErrorCodes.INVALID_POST_ID)
+        }
+
         return res.send({
             success: true,
             message: 'Post edited',
@@ -70,7 +77,10 @@ const editPost = async (req, res, next) => {
 const deletePosts = async (req, res, next) => {
     const { postId } = req.params
     try {
-        await Post.deleteOne({ _id: postId })
+        const post = await Post.findByIdAndDelete({ _id: postId })
+        if (!post) {
+            return next(ErrorCodes.INVALID_POST_ID)
+        }
         return res.send({
             success: true,
             message: 'Post deleted',

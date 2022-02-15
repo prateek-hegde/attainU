@@ -4,11 +4,6 @@ module.exports.ErrorCodes = {
         code: 'INVALID_USER',
         message: 'User not found',
     },
-    INVALID_ADMIN_SECRETE: {
-        statusCode: 401,
-        code: 'NOT_AUTHORIZED',
-        message: 'Cannot create admin user',
-    },
     INTERNAL_SERVER_ERROR: {
         statusCode: 500,
         code: 'INTERNAL_SERVER_ERROR',
@@ -18,6 +13,11 @@ module.exports.ErrorCodes = {
         statusCode: 422,
         code: 'INVALID_PAGE_NUMBER',
         message: 'Invalid page number, should be positive integer',
+    },
+    INVALID_POST_ID: {
+        statusCode: 422,
+        code: 'INVALID_POST_ID',
+        message: 'Invalid postId or post does not exists',
     },
 }
 
