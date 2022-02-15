@@ -1,30 +1,30 @@
-const router = require("express").Router();
-const { Roles } = require("../utils");
+const router = require('express').Router()
+const { Roles } = require('../utils')
 const {
-  createPosts,
-  fetchPosts,
-  editPost,
-  deletePosts,
-} = require("../business_logic/posts");
-const { validateBodySchema, authorize } = require("../middlewares");
-const { postSchema } = require("../schema");
+    createPosts,
+    fetchPosts,
+    editPost,
+    deletePosts,
+} = require('../business_logic/posts')
+const { validateBodySchema, authorize } = require('../middlewares')
+const { postSchema } = require('../schema')
 
 router.post(
-  "/",
-  authorize([Roles.Admin]),
-  validateBodySchema(postSchema),
-  createPosts
-);
+    '/',
+    authorize([Roles.Admin]),
+    validateBodySchema(postSchema),
+    createPosts
+)
 
-router.get("/", authorize([Roles.Admin, Roles.Student]), fetchPosts);
+router.get('/', authorize([Roles.Admin, Roles.Student]), fetchPosts)
 
 router.put(
-  "/:postId",
-  authorize([Roles.Admin]),
-  validateBodySchema(postSchema),
-  editPost
-);
+    '/:postId',
+    authorize([Roles.Admin]),
+    validateBodySchema(postSchema),
+    editPost
+)
 
-router.delete("/:postId", authorize([Roles.Admin]), deletePosts);
+router.delete('/:postId', authorize([Roles.Admin]), deletePosts)
 
-module.exports = router;
+module.exports = router

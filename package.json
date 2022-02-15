@@ -10,8 +10,8 @@
     "start": "node app.js",
     "start:dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint app.js ./src",
-    "lint:fix": "eslint app.js ./src --fix"
+    "lint": "eslint app.js ./src && prettier --check app.js ./src",
+    "lint:fix": "eslint app.js ./src --fix && prettier --write app.js ./src"
   },
   "keywords": [],
   "author": "",
@@ -34,10 +34,12 @@
     "winston": "3.3.3"
   },
   "devDependencies": {
-    "eslint": "8.6.0",
+    "eslint": "^8.6.0",
     "eslint-config-airbnb-base": "14.0.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "2.20.1",
     "husky": "7.0.4",
-    "nodemon": "2.0.7"
+    "nodemon": "2.0.7",
+    "prettier": "^2.5.1"
   }
 }
