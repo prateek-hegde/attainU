@@ -52,7 +52,7 @@ app.use('/', require('./src/routes'));
 // Catch 404
 app.use((_req, res) => {
 	res.status(404).send({
-		error: '404 : Invaid Route',
+		error: 'Invaid Route',
 	});
 });
 

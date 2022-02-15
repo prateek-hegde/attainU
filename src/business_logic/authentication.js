@@ -21,7 +21,7 @@ module.exports.login = async (req, res, next) => {
 				error,
 			)}`,
 		);
-		return next(error.message);
+		return next(ErrorCodes.INTERNAL_SERVER_ERROR);
 	}
 
 	let token;
@@ -39,10 +39,9 @@ module.exports.login = async (req, res, next) => {
 				error,
 			)}`,
 		);
-		return next(error.message);
+		return next(ErrorCodes.INTERNAL_SERVER_ERROR);
 	}
 
-	delete user.passwordHash;
 	return res.send({
 		success: true,
 		tokenData: {
