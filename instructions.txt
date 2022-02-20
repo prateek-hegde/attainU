@@ -1,0 +1,30 @@
+
+
+# Installation procedure:
+1. navigate to root directory and run "npm install"
+2. paste .env file in root directory
+3. run "npm start"
+
+# User credentials
+    admin user:
+                    userName: admin
+                    password: skyfall2022
+    studnent user: 
+                    userName: stu
+                    password: skyfall2022
+
+
+# API Docs:
+http://localhost:3000/api-docs
+
+# Heroku URL:
+https://desolate-springs-00779.herokuapp.com/
+https://desolate-springs-00779.herokuapp.com/api-docs
+
+
+
+# Environment variables
+
+MONGO_CONNECION_STRING = mongodb+srv://test-user:rTcN6Gw1X1ubGBSd@neo.dicpa.mongodb.net/sample?retryWrites=true&w=majority
+PORT = 3000
+JWT_SECRETE_KEY = "G^o)B=^F4Mbk@5Ew/YX0gEO53BSYh$"
